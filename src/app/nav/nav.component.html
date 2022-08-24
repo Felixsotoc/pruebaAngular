@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <span class="tit" style="color: white; font-size: 2vw;" >CHAMBERLAIN <br /> GROUP</span>
+
+    </mat-toolbar>
+
+    <br>
+    <mat-nav-list>
+      <a mat-list-item href="#" style="color: white;">Dashboard</a>
+      <a mat-list-item href="#" style="color: white;">Alertamiento</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="#e50069">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span></span>
+    </mat-toolbar>
+<app-dashboard></app-dashboard>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
